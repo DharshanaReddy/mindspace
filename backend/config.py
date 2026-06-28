@@ -3,10 +3,12 @@ from functools import lru_cache
 
 
 class Settings(BaseSettings):
-    # OpenAI
-    openai_api_key: str
-    openai_model: str = "gpt-4o-mini"
-    openai_moderation_model: str = "omni-moderation-latest"
+    # Groq (free — get key at console.groq.com)
+    groq_api_key: str
+    groq_model: str = "llama-3.1-70b-versatile"
+
+    # OpenAI (optional)
+    openai_api_key: str = ""
 
     # LangSmith
     langchain_tracing_v2: bool = True
@@ -28,6 +30,7 @@ class Settings(BaseSettings):
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
+        extra = "ignore"
 
 
 @lru_cache

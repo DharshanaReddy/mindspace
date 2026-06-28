@@ -6,13 +6,13 @@ Provides grounded, evidence-based context to the Kai chatbot via semantic search
 import chromadb
 from chromadb.utils import embedding_functions
 from langsmith import traceable
-import os
 import logging
 from .knowledge_base import MENTAL_HEALTH_DOCUMENTS
 
 logger = logging.getLogger(__name__)
 
-_collection = None
+from typing import Optional
+_collection: Optional[chromadb.Collection] = None
 COLLECTION_NAME = "mental_health_knowledge"
 
 
@@ -22,9 +22,8 @@ def _get_collection() -> chromadb.Collection:
         return _collection
 
     client = chromadb.Client()
-    ef = embedding_functions.OpenAIEmbeddingFunction(
-        api_key=os.getenv("OPENAI_API_KEY"),
-        model_name="text-embedding-3-small",
+    ef = embedding_functions.SentenceTransformerEmbeddingFunction(
+        model_name="all-MiniLM-L6-v2"
     )
 
     try:

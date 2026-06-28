@@ -175,8 +175,6 @@ SUGGESTIONS: dict[str, dict[str, list[dict]]] = {
             {"activity": "Go to bed one hour earlier tonight — sleep is healing", "type": "Sleep"},
         ],
     },
-}
-
     "Overwhelmed": {
         "music": [
             {"title": "The Sound of Silence", "artist": "Simon & Garfunkel", "vibe": "Stillness in the noise"},

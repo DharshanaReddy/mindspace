@@ -7,7 +7,7 @@ more accurate than lexicon-based methods for mental health contexts.
 
 import json
 import logging
-from openai import AsyncOpenAI
+from groq import AsyncGroq
 from langsmith import traceable
 from ..config import get_settings
 
@@ -43,11 +43,11 @@ async def analyze_mood(text: str) -> dict:
     Classify mood and sentiment from free-form text using GPT-4o-mini.
     Returns structured analysis with confidence score.
     """
-    client = AsyncOpenAI(api_key=settings.openai_api_key)
+    client = AsyncGroq(api_key=settings.groq_api_key)
 
     try:
         response = await client.chat.completions.create(
-            model=settings.openai_model,
+            model=settings.groq_model,
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {
