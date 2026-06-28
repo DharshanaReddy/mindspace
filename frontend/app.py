@@ -268,7 +268,7 @@ def page_chat():
         '<span class="tech-badge">LangChain</span>'
         '<span class="tech-badge">ChromaDB RAG</span>'
         '<span class="tech-badge">LangSmith</span>'
-        '<span class="tech-badge">GPT-4o-mini</span>',
+        '<span class="tech-badge">Groq LLaMA 3.1</span>',
         unsafe_allow_html=True,
     )
     st.markdown("")
@@ -383,7 +383,7 @@ def main():
         st.markdown("---")
         st.markdown("**Tech Stack**")
         for badge in ["LangChain", "ChromaDB RAG", "LangSmith", "FastAPI", "WebSockets",
-                       "GPT-4o-mini", "OpenAI Moderation", "SQLAlchemy", "JWT Auth"]:
+                       "Groq LLaMA 3.1", "Keyword Moderation", "SQLAlchemy", "JWT Auth"]:
             st.markdown(f'<span class="tech-badge">{badge}</span>', unsafe_allow_html=True)
 
         st.markdown("")
