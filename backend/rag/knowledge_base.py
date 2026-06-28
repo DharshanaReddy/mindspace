@@ -128,4 +128,46 @@ MENTAL_HEALTH_DOCUMENTS = [
         Regular practice builds the 'muscle' of attention and reduces default mode network rumination.""",
         "metadata": {"category": "techniques", "type": "mindfulness"},
     },
+    {
+        "id": "ptsd-trauma-001",
+        "content": """PTSD and trauma: understanding and healing approaches:
+        Trauma is not weakness — it is a normal nervous system response to abnormal experiences.
+        PTSD symptoms: intrusive memories/flashbacks, avoidance, negative mood changes, hypervigilance.
+        Not everyone exposed to trauma develops PTSD; social support is the strongest protective factor.
+        Evidence-based treatments: EMDR (Eye Movement Desensitization and Reprocessing), CPT (Cognitive Processing Therapy), Prolonged Exposure.
+        Trauma-informed grounding: when triggered, orient to safety — name the room, feel the chair, say the date aloud.
+        The window of tolerance: a state between hyperarousal (panic) and hypoarousal (shutdown) where healing happens.
+        Somatic approaches: trauma is stored in the body — gentle movement, yoga, and breathwork can access it.
+        Healing is not linear — setbacks are part of recovery, not proof that healing isn't working.
+        Seek a trauma-specialized therapist (EMDR-certified or trauma-focused CBT trained) for best outcomes.""",
+        "metadata": {"category": "condition", "type": "trauma"},
+    },
+    {
+        "id": "grief-loss-001",
+        "content": """Grief and loss: navigating bereavement and major life transitions:
+        Grief is not a disorder — it is love with nowhere to go. There is no right way to grieve.
+        Kübler-Ross's stages (denial, anger, bargaining, depression, acceptance) are not a linear checklist — they are possible experiences.
+        Complicated grief (prolonged grief disorder): when grief severely impairs functioning beyond 12 months, therapy can help.
+        Types of grief: bereavement, disenfranchised grief (losses not socially recognized), ambiguous loss, anticipatory grief.
+        What actually helps: letting yourself feel emotions without rushing them, maintaining routine, accepting support.
+        What doesn't help: 'staying strong', suppressing feelings, timelines imposed by others ('you should be over it by now').
+        Continuing bonds theory: maintaining a relationship with the deceased through memory and ritual is healthy, not 'stuck'.
+        Anniversary reactions are normal — grief tends to resurface at significant dates.
+        Grief support: GriefShare groups, Compassionate Friends (child loss), AFSP (suicide loss survivors).""",
+        "metadata": {"category": "condition", "type": "grief"},
+    },
+    {
+        "id": "emotional-regulation-001",
+        "content": """Emotional regulation skills (DBT-informed):
+        Dialectical Behavior Therapy (DBT) offers some of the most practical emotion regulation tools available.
+        TIPP for intense emotions: Temperature (cold water on face/wrists), Intense exercise, Paced breathing, Progressive relaxation.
+        Opposite action: when an emotion urges you to do something harmful (isolate when lonely, avoid when anxious), do the opposite.
+        Check the facts: ask 'Does my emotional response fit the situation?' Emotions can misfire based on past experiences.
+        Build positive emotions: deliberately schedule activities that bring mastery and pleasure — don't wait to feel motivated.
+        Reduce emotional vulnerability (PLEASE): treat PhysicaL illness, balance Eating, avoid mood-Altering substances, balance Sleep, get Exercise.
+        Ride the wave: emotions are time-limited — the average emotional peak lasts 90 seconds before the wave begins to subside.
+        Mindfulness of emotion: observe the emotion without judging it or acting on it ('I notice I am feeling fear').
+        Emotion naming (affect labeling): simply naming an emotion in words reduces activity in the amygdala.""",
+        "metadata": {"category": "techniques", "type": "emotional-regulation"},
+    },
 ]
