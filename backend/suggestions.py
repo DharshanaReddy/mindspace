@@ -177,6 +177,50 @@ SUGGESTIONS: dict[str, dict[str, list[dict]]] = {
     },
 }
 
+    "Overwhelmed": {
+        "music": [
+            {"title": "The Sound of Silence", "artist": "Simon & Garfunkel", "vibe": "Stillness in the noise"},
+            {"title": "Mad World", "artist": "Gary Jules", "vibe": "Quiet and real"},
+            {"title": "Re: Stacks", "artist": "Bon Iver", "vibe": "Slow and undemanding"},
+            {"title": "Saturn", "artist": "Stevie Wonder", "vibe": "Grounding and cosmic"},
+        ],
+        "movies": [
+            {"title": "Lost in Translation", "year": 2003, "why": "No pressure — just being"},
+            {"title": "Spirited Away", "year": 2001, "why": "Immersive world that quiets your own"},
+            {"title": "About Time", "year": 2013, "why": "Slows you down and resets perspective"},
+        ],
+        "wellness": [
+            {"activity": "Pick just ONE thing to do today and do only that", "type": "Focus"},
+            {"activity": "Write a brain dump: everything on your mind, uncensored, for 5 minutes", "type": "Journaling"},
+            {"activity": "Say no to one thing on your list — this week, not someday", "type": "Boundaries"},
+            {"activity": "Sit outside without your phone for 10 minutes and do nothing", "type": "Rest"},
+            {"activity": "Take 10 deep belly breaths, exhale twice as long as you inhale", "type": "Breathing"},
+            {"activity": "Ask for help with one task — outsource or delegate something", "type": "Support"},
+        ],
+    },
+    "Grateful": {
+        "music": [
+            {"title": "What a Wonderful World", "artist": "Louis Armstrong", "vibe": "Timeless warmth"},
+            {"title": "Here Comes the Sun", "artist": "The Beatles", "vibe": "Gentle joy"},
+            {"title": "Three Little Birds", "artist": "Bob Marley", "vibe": "Easy contentment"},
+            {"title": "Beautiful Day", "artist": "U2", "vibe": "Open and expansive"},
+        ],
+        "movies": [
+            {"title": "Chef", "year": 2014, "why": "Savoring life's simple pleasures"},
+            {"title": "Coco", "year": 2017, "why": "Celebrating love, family, and memory"},
+            {"title": "It's a Wonderful Life", "year": 1946, "why": "Timeless reminder of what matters"},
+        ],
+        "wellness": [
+            {"activity": "Write a detailed thank-you letter to someone who shaped your life", "type": "Connection"},
+            {"activity": "Take a photo walk — capture 10 things you find beautiful today", "type": "Mindfulness"},
+            {"activity": "Share your gratitude with someone out loud — not just in your head", "type": "Social"},
+            {"activity": "Savor your next meal: eat slowly, without screens, noticing each flavor", "type": "Mindfulness"},
+            {"activity": "Reflect: write 3 ways your life is different (better) than 5 years ago", "type": "Journaling"},
+            {"activity": "Pay it forward — do something kind for a stranger today", "type": "Community"},
+        ],
+    },
+}
+
 MOOD_EMOJIS: dict[str, str] = {
     "Happy": "😊",
     "Sad": "😢",
@@ -186,6 +230,8 @@ MOOD_EMOJIS: dict[str, str] = {
     "Stressed": "😩",
     "Hopeful": "🌟",
     "Exhausted": "😴",
+    "Overwhelmed": "🌊",
+    "Grateful": "🙏",
 }
 
 
