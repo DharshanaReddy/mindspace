@@ -11,7 +11,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException, Depends, WebSocket, WebSocketDisconnect, Header
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, func, desc
+from sqlalchemy import select, func, desc, cast, Date
 from typing import Optional
 
 from .config import get_settings
@@ -290,8 +290,36 @@ async def analytics_overview(db: AsyncSession = Depends(get_db)):
         "total_posts": total_posts,
         "total_replies": total_replies,
         "active_connections": manager.connection_count,
+        "connection_stats": manager.connection_stats(),
         "mood_distribution": mood_dist,
         "sentiment_distribution": sentiment_dist,
+    }
+
+
+@app.get("/analytics/mood-trends")
+async def mood_trends(days: int = 7, db: AsyncSession = Depends(get_db)):
+    """Daily post counts grouped by mood for the last N days (default 7)."""
+    from datetime import datetime, timedelta
+    cutoff = datetime.utcnow() - timedelta(days=max(1, min(days, 90)))
+
+    result = await db.execute(
+        select(
+            cast(models.Post.created_at, Date).label("day"),
+            models.Post.mood,
+            func.count(models.Post.id).label("count"),
+        )
+        .where(models.Post.created_at >= cutoff)
+        .where(models.Post.flagged == False)
+        .group_by("day", models.Post.mood)
+        .order_by("day")
+    )
+    rows = result.all()
+    return {
+        "period_days": days,
+        "trends": [
+            {"date": str(r.day), "mood": r.mood, "count": r.count}
+            for r in rows
+        ],
     }
 
 
