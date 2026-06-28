@@ -55,9 +55,10 @@ app = FastAPI(
     title="MindSpace API",
     description=(
         "Anonymous mental health support community — "
-        "RAG chatbot, GPT-4o-mini sentiment analysis, WebSocket feed, OpenAI moderation."
+        "RAG chatbot (Groq LLaMA 3.1), LangSmith-traced sentiment analysis, "
+        "real-time WebSocket feed, and keyword-based content moderation."
     ),
-    version="2.0.0",
+    version="2.1.0",
     lifespan=lifespan,
 )
 
@@ -134,12 +135,24 @@ async def list_posts(
     return result.scalars().all()
 
 
+MAX_POST_LENGTH = 2000
+MAX_CHAT_LENGTH = 1000
+
+
 @app.post("/posts", response_model=PostOut, status_code=201)
 async def create_post(
     post: PostCreate,
     db: AsyncSession = Depends(get_db),
     session: str = Depends(get_session),
 ):
+    if len(post.content.strip()) == 0:
+        raise HTTPException(status_code=422, detail="Post content cannot be empty.")
+    if len(post.content) > MAX_POST_LENGTH:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Post exceeds maximum length of {MAX_POST_LENGTH} characters.",
+        )
+
     # Content moderation
     mod = await moderate_content(post.content)
     if mod.flagged:
@@ -222,6 +235,13 @@ async def add_reply(
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat(msg: ChatMessage):
+    if not msg.message or not msg.message.strip():
+        raise HTTPException(status_code=422, detail="Message cannot be empty.")
+    if len(msg.message) > MAX_CHAT_LENGTH:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Message exceeds maximum length of {MAX_CHAT_LENGTH} characters.",
+        )
     try:
         response, sources = get_kai_response(msg.message, msg.mood, msg.history)
         return ChatResponse(response=response, sources=sources)
